@@ -1,37 +1,43 @@
-# Welcome to your organization's demo repository
+# Demo Repository with React Todo App
 
-## FastMCP Demo Application
+This repository now includes a simple **React Todo List** application built with Vite.
 
-This repository now includes a **FastMCP** example app. It demonstrates how to create a FastMCP instance with a few simple tools (add, greet, multiply) and run it as a standalone server.
+## Prerequisites
 
-### Running the FastMCP app
+- **Node.js** (v18 or later) and **npm** installed.
+- Python dependencies (for the existing FastMCP app) can be installed with:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
-1. **Install dependencies** (if not already installed):
+## Running the React Todo App
+
+1. **Install JavaScript dependencies**:
    ```bash
-   pip install -r requirements.txt
+   npm install
    ```
-2. **Start the server**:
+2. **Start the development server**:
    ```bash
-   python fastmcp_app.py
+   npm run dev
    ```
-   The server will listen on `http://0.0.0.0:8000`.
+   The app will be available at `http://localhost:3000`.
+3. **Build for production** (optional):
+   ```bash
+   npm run build
+   ```
+   The compiled files will be placed in the `dist/` directory.
 
-3. **Explore the API**:
-   - Health check: `GET /ping` (returns `"pong"`).
-   - FastMCP tools are available under `/tools/<tool_name>` and the OpenAPI docs at `/docs`.
-   - Example tool calls:
-     - `POST /tools/add` with JSON `{ "a": 2, "b": 3 }` returns `5`.
-     - `POST /tools/greet` with JSON `{ "name": "Alice" }` returns `"Hello, Alice!"`.
-     - `POST /tools/multiply` with JSON `{ "a": 4, "b": 5 }` returns `20`.
+## Existing FastMCP Demo
+
+The original FastMCP example is still available. To run it:
+
+```bash
+pip install -r requirements.txt
+python fastmcp_app.py
+```
+
+Visit `http://localhost:8000` to explore the FastMCP tools.
 
 ---
 
-The original repository content follows.
-
-# Welcome to your organization's demo repository
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
-
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
-This code repository (or "repo") is designed to demonstrate the best GitHub has to offer with the least amount of noise.
-
-The repo includes an `index.html` file (so it can render a web page), two GitHub Actions workflows, and a CSS stylesheet dependency.
+Feel free to explore, modify, and extend both the React app and the FastMCP example.
