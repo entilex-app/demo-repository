@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -6,16 +6,16 @@ function App() {
 
   const addTodo = () => {
     if (!input.trim()) return;
-    setTodos([...todos, { id: Date.now(), text: input.trim(), done: false }]);
+    setTodos([...todos, {id: Date.now(), text: input.trim(), done: false}]);
     setInput('');
   };
 
   const toggleTodo = (id) => {
-    setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));
+    setTodos(todos.map((t) => (t.id === id ? {...t, done: !t.done} : t)));
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter(t => t.id !== id));
+    setTodos(todos.filter((t) => t.id !== id));
   };
 
   const handleKey = (e) => {
@@ -23,26 +23,39 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '2rem auto', fontFamily: 'Arial, sans-serif' }}>
+    <div
+      style={{
+        maxWidth: '400px',
+        margin: '2rem auto',
+        fontFamily: 'Arial, sans-serif',
+      }}>
       <h2>Todo List</h2>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
+      <div style={{display: 'flex', gap: '0.5rem'}}>
         <input
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKey}
           placeholder="New todo"
-          style={{ flex: 1, padding: '0.5rem' }}
+          style={{flex: 1, padding: '0.5rem'}}
+          type="text"
+          value={input}
         />
-        <button onClick={addTodo} style={{ padding: '0.5rem 1rem' }}>Add</button>
+        <button onClick={addTodo} style={{padding: '0.5rem 1rem'}}>
+          Add
+        </button>
       </div>
-      <ul style={{ listStyle: 'none', padding: 0, marginTop: '1rem' }}>
-        {todos.map(todo => (
-          <li key={todo.id} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+      <ul style={{listStyle: 'none', padding: 0, marginTop: '1rem'}}>
+        {todos.map((todo) => (
+          <li
+            key={todo.id}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: '0.5rem',
+            }}>
             <input
-              type="checkbox"
               checked={todo.done}
               onChange={() => toggleTodo(todo.id)}
+              type="checkbox"
             />
             <span
               style={{
@@ -50,11 +63,14 @@ function App() {
                 marginLeft: '0.5rem',
                 textDecoration: todo.done ? 'line-through' : 'none',
                 color: todo.done ? '#777' : '#000',
-              }}
-            >
+              }}>
               {todo.text}
             </span>
-            <button onClick={() => deleteTodo(todo.id)} style={{ marginLeft: '0.5rem' }}>✕</button>
+            <button
+              onClick={() => deleteTodo(todo.id)}
+              style={{marginLeft: '0.5rem'}}>
+              ✕
+            </button>
           </li>
         ))}
       </ul>

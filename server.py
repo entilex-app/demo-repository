@@ -3,6 +3,7 @@ from fastmcp import FastMCP
 # Create a FastMCP instance with a name for your app
 mcp = FastMCP("Demo FastMCP App")
 
+
 # Example tool: add two integers
 @mcp.tool
 def add(a: int, b: int) -> int:
@@ -12,12 +13,13 @@ def add(a: int, b: int) -> int:
     """
     return a + b
 
+
 # Example tool: greet a user
 @mcp.tool
 def greet(name: str) -> str:
-    """Return a friendly greeting for *name*.
-    """
+    """Return a friendly greeting for *name*."""
     return f"Hello, {name}!"
+
 
 if __name__ == "__main__":
     # Run the FastMCP server. By default it starts on localhost:8000.

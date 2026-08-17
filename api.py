@@ -14,15 +14,18 @@ from fastmcp import FastMCP
 
 mcp = FastMCP("Demo FastMCP App")
 
+
 @mcp.tool
 def add(a: int, b: int) -> int:
     """Return the sum of *a* and *b*."""
     return a + b
 
+
 @mcp.tool
 def greet(name: str) -> str:
     """Return a friendly greeting for *name*."""
     return f"Hello, {name}!"
+
 
 # ----------------------------------------------------------------------
 # FastAPI application – you can define your own routes here
@@ -30,10 +33,12 @@ def greet(name: str) -> str:
 
 app = FastAPI(title="Demo FastAPI + FastMCP", version="0.1.0")
 
+
 @app.get("/ping")
 def ping() -> str:
     """Simple health‑check endpoint."""
     return "pong"
+
 
 # Mount the FastMCP server under ``/mcp``.  All MCP tool endpoints will be
 # available at ``/mcp/tools/<tool_name>`` and the OpenAPI docs at ``/mcp/docs``.
